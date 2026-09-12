@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students' Result Summary</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            background-color: #ffffff;
+        }
+
+        h1 { font-size: 36px; font-weight: bold; margin-bottom: 25px; text-align: center; }
+        h3 { font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 25px; text-align: center; }
+
+        table { border-collapse: collapse; border: 1px solid #555; width: 80%; max-width: 650px; }
+        th, td { border: 1px solid #555; padding: 6px 12px; text-align: left; font-size: 18px; }
+        th { font-weight: bold; }
+
+        .details-btn { color: #551A8B; text-decoration: underline; cursor: pointer; background: none; border: none; font-size: 18px; font-family: inherit; }
+        .details-btn:hover { color: #0000EE; }
+
+        /* Modal Background */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+        }
+
+        /* Modal Content Box */
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 900px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 20px auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 24px; font-weight: bold;
+            cursor: pointer; color: #aaa;
+        }
+        .close-btn:hover { color: #000; }
+
+        /* Marksheet Table Inside Modal */
+        .marksheet-header { text-align: center; margin-bottom: 15px; }
+        .marksheet-header h2 { margin: 2px 0; font-size: 18px; }
+        .marksheet-header p { margin: 2px 0; font-size: 12px; font-weight: bold; }
+
+        .marksheet-info { margin-bottom: 10px; font-size: 12px; font-weight: bold; }
+        .marksheet-info div { display: flex; justify-content: space-between; margin-bottom: 3px; }
+
+        .marksheet-table { width: 100%; border-collapse: collapse; border: 2px solid #000; font-size: 12px; }
+        .marksheet-table th, .marksheet-table td { border: 1px solid #000; padding: 3px 5px; text-align: left; }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .bold { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Students' Result Summery</h1>
+    <h3>click on detail to view mark sheet</h3>
+
+    <!-- Main Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME:</th>
+                <th>CLASS</th>
+                <th>MARKS</th>
+                <th>GRADE</th>
+                <th>STATUS</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td><td>Ahmed</td><td>10</td><td>459</td><td>A</td><td>Pass</td>
+                <td><button class="details-btn" onclick="openModal('Aisha Khan')">Details</button></td>
+            </tr>
+            <tr>
+                <td>2</td><td>Ali</td><td>10</td><td>459</td><td>A</td><td>Pass</td>
+                <td><button class="details-btn" onclick="openModal('Aisha Khan')">Details</button></td>
+            </tr>
+            <tr>
+                <td>3</td><td>Aisha Khan</td><td>10</td><td>501</td><td>A+</td><td>Pass</td>
+                <td><button class="details-btn" onclick="openModal('RUHAMA Gull')">Details</button></td>
+            </tr>
+            <tr>
+                <td>4</td><td>Usman</td><td>10</td><td>459</td><td>A</td><td>Pass</td>
+                <td><button class="details-btn" onclick="openModal('Aisha Khan')">Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Popup Modal (Marksheet) -->
+    <div id="marksheetModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="marksheet-header">
+                <h2>BOARD OF SECONDARY EDUCATION KARACHI</h2>
+                <p>STATEMENT OF MARKS</p>
+                <p>S.S.C EXAMINATION (FOR SUCCESFUL CANDIDATES ONLY)</p>
+            </div>
+
+            <div class="marksheet-info">
+                <div>
+                    <span>EXAMINATION: ANNUAL 2021</span>
+                    <span>ROLL NO: 12563873</span>
+                </div>
+                <div>
+                    <span>NAME: <span id="studentName">RUHAMA Gull</span></span>
+                </div>
+                <div>
+                    <span>SCHOOL/PRIVATE: THE EDUCATIONAL ACADEMY,BLOCK-6,GULSHAN-E-IQBAL,KARACHI.</span>
+                </div>
+            </div>
+
+            <table class="marksheet-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Subject</th><th rowspan="2">marks</th>
+                        <th colspan="4" class="text-center">Marks Obtained</th>
+                        <th rowspan="2">Total</th><th rowspan="2">Marks in Word</th>
+                    </tr>
+                    <tr><th colspan="2">Part 01</th><th colspan="2">Part 02</th></tr>
+                    <tr><th></th><th></th><th>Theory</th><th>Practical</th><th>Theory</th><th>Practical</th><th></th><th></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>English</td><td>200</td><td>81</td><td>......</td><td>78</td><td>......</td><td>159</td><td>One Hundred Fifty-Nine</td></tr>
+                    <tr><td>Mathemetics</td><td>200</td><td>89</td><td>......</td><td>80</td><td>......</td><td>169</td><td>One Hundred Sixty-Nine</td></tr>
+                    <tr><td>Urdu</td><td>200</td><td>84</td><td>......</td><td>89</td><td>......</td><td>173</td><td>One Hundred Seventy-Three</td></tr>
+                    <tr><td colspan="6" class="text-right bold">Total:600</td><td>501</td><td>Five Hundred One</td></tr>
+                    <tr><td colspan="6" class="text-right bold">Remarks</td><td colspan="2" class="text-center bold">GRADE:A+ (PASS)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openModal(name) {
+            document.getElementById('studentName').innerText = name;
+            document.getElementById('marksheetModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('marksheetModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

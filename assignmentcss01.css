@@ -1,4 +1,5 @@
 
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,220 +7,219 @@
   scroll-behavior: smooth;
 }
 
+
 body {
-  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #6c757d;
-  background-color: #ffffff;
+  font-family: 'Open Sans', system-ui, sans-serif;
+  color: #555;
+  background-color: #fff;
   display: flex;
 }
 
-/* Fixed Sidebar Layout */
+/* Sidebar Navigation */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 270px;
+  width: 260px;
   height: 100vh;
-  /* background-color: #bd5d38; */
-  background-color: rgb(4, 136, 85);
+  background-color: #048855;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  z-index: 100;
+  z-index: 10;
 }
 
-.sidebar__avatar {
-  width: 160px;
-  height: 160px;
+.profile-img {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  border: 8px solid rgba(255, 255, 255, 0.2);
+  border: 6px solid rgba(255, 255, 255, 0.25);
   object-fit: cover;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.nav-menu {
+.sidebar-nav ul {
   list-style: none;
   text-align: center;
-  width: 100%;
 }
 
-.nav-menu__item {
-  margin-bottom: 1.2rem;
+.sidebar-nav li {
+  margin-bottom: 1rem;
 }
 
-.nav-menu__link {
-  color: rgba(255, 255, 255, 0.65);
+.sidebar-nav a {
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  font-weight: 800;
-  font-size: 0.9rem;
-  letter-spacing: 0.08rem;
-  transition: color 0.3s ease;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
 }
 
-.nav-menu__link:hover {
-  color: #ffffff;
+.sidebar-nav a:hover {
+  color: #fff;
 }
 
-/* Main Content Area */
-.content-wrapper {
-  margin-left: 270px;
-  padding: 0 5rem;
-  width: calc(100% - 270px);
+/* Layout & Main Area */
+.main-content {
+  margin-left: 260px;
+  padding: 0 4rem;
+  width: calc(100% - 260px);
 }
 
-.page-section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+.section {
+  padding: 4rem 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.page-section:last-child {
+.section:last-of-type {
   border-bottom: none;
 }
 
-.hero-block__title {
-  font-size: 5rem;
+/* Hero Section */
+.hero h1 {
+  font-size: 4.5rem;
   line-height: 1;
-  font-weight: 700;
-  color: #343a40;
+  font-weight: 800;
+  color: #2c3e50;
   text-transform: uppercase;
 }
 
-.text-accent {
-  color: rgb(4, 136, 85);
+.highlight {
+  color: #048855;
 }
 
-.hero-block__contact {
-  font-style: normal;
-  font-size: 1.15rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-top: 0.5rem;
-  margin-bottom: 3rem;
-  color: #6c757d;
+.contact-info {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1rem 0 2rem;
+  color: #7f8c8d;
 }
 
-.hero-block__contact a {
-   color: rgb(4, 136, 85);
+.contact-info a {
+  color: #048855;
   text-decoration: none;
 }
 
-.hero-block__bio {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  margin-bottom: 3rem;
-  max-width: 800px;
+.bio {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 750px;
 }
 
 /* Social Buttons */
-.social-links__btn {
+.social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 3.5rem;
-  width: 3.5rem;
-   background-color: #495057;
-  color: #ffffff; 
-  border-radius: 100%;
-  font-size: 1.5rem;
-  margin-right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: #34495e;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-.social-links__btn:hover {
-   background-color: #bd5d38; 
-
-}
-.social-links__btn:hover {
-  background-color: #ffffff; 
-  color: #000000;           
-  border: 1px solid #000000; 
+.social-icons a:hover {
+  background-color: #048855;
+  color: #fff;
 }
 
-
-/* Headings & Section Typography */
-.page-section__title {
-  font-size: 3rem;
+/* Typography & Lists */
+.section h2 {
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #343a40;
-  margin-bottom: 3rem;
+  color: #2c3e50;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
 }
 
-.timeline-card {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 3rem;
-}
-
-.timeline-card__title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #343a40;
-}
-
-.timeline-card__company {
-  display: block;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #6c757d;
-  margin-bottom: 1rem;
-}
-
-.timeline-card__desc {
-  line-height: 1.6;
-}
-
-.timeline-card__date {
-   color: rgb(4, 136, 85);
-  font-size: 0.95rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-/* Skills */
-.skills-block__subheading {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #6c757d;
-  margin-bottom: 1.5rem;
-}
-
-.dev-icons {
-  font-size: 3rem;
+.experience-item,
+.edu-item {
   margin-bottom: 2.5rem;
 }
 
-.dev-icons i {
-  margin-right: 1.2rem;
-  color: #6c757d;
-  transition: color 0.3s ease;
+.exp-header,
+.edu-header {
+  margin-bottom: 0.5rem;
 }
 
-.dev-icons i:hover {
-   color: rgb(4, 136, 85);
+.exp-header h3,
+.edu-header h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
 }
 
-.workflow-list {
+.company,
+.degree {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #7f8c8d;
+}
+
+.date {
+  display: block;
+  color: #048855;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* Skills & Icons */
+.icon-list {
   list-style: none;
-  font-size: 1.1rem;
-  line-height: 2.2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 2.5rem;
+  color: #7f8c8d;
+  margin: 1rem 0 2rem;
 }
 
-.workflow-list i {
-  color: #6c757d;
+.icon-list i:hover {
+  color: #048855;
+}
+
+.check-list,
+.awards-list {
+  list-style: none;
+  line-height: 2;
+  font-size: 1.05rem;
+}
+
+.check-list li::before {
+  content: "✓ ";
+  color: #048855;
+  font-weight: bold;
   margin-right: 0.5rem;
 }
 
-.text-warning {
-  color: #ffc107;
+.awards-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
 }
-.fa-trophy {
+.awards-list {
+  list-style: none;
+}
+
+.awards-list li {
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+}
+
+.awards-list i {
   color: #ffc107;
+  margin-right: 0.5rem;
 }
